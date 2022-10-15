@@ -98,24 +98,5 @@ public class GraphVisitor extends ASTVisitor {
 		return super.visit(node);
 	}
 
-	public String getGraph() {
-		StringBuilder res = new StringBuilder("");
-		for (Method method : methodsHavingReferences) {
-			res.append(method);
-		}
-		if (res.toString().equals("")) {
-			res.append("Il n'y a aucun appel de methodes !");
-		}
-		return res.toString();
-	}
-
-	public String getGraphAsDot() {
-		StringBuilder res = new StringBuilder("digraph G {\n");
-		for (Method method : methodsHavingReferences) {
-			res.append(method.getMethodWithCallsLinks());
-		}
-		res.append("\n}");
-		return res.toString();
-	}
 
 }
